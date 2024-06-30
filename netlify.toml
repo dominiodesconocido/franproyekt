@@ -13,3 +13,6 @@
 
 [context.deploy-preview.environment]
   NODE_ENV = "development"
+
+[functions]
+  directory = "https://github.com/dominiodesconocido/franproyekt.git"
