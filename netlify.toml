@@ -1,9 +1,9 @@
 [build]
   publish = "dist"
-  functions = "netlify/functions"
+  functions = "interactividad.js"
 
 [functions]
-  directory = "netlify/functions"
+  directory = "interactividad.js"
   node_bundler = "esbuild"
   external_node_modules = ["some-external-module"]
   included_files = ["files/*.md"]
