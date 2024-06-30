@@ -1,35 +1,3 @@
-/*let words = [];
-
-function setup() {
-    noCanvas();
-
-    // Selecciona los elementos de las palabras
-    let elements = document.querySelectorAll('.titulo-index span');
-    elements.forEach((el, index) => {
-        let pos = el.getBoundingClientRect();
-        words.push({element: el, x: pos.left, y: pos.top, originalX: pos.left, originalY: pos.top});
-    });
-
-    window.addEventListener('mousemove', onMouseMove);
-}
-
-function onMouseMove(event) {
-    let mouseX = event.clientX;
-    let mouseY = event.clientY;
-
-    words.forEach(word => {
-        let dx = mouseX - word.originalX;
-        let dy = mouseY - word.originalY;
-        let distance = sqrt(dx * dx + dy * dy);
-        let angle = atan2(dy, dx);
-
-        let moveX = cos(angle) * distance * 0.05;
-        let moveY = sin(angle) * distance * 0.05;
-
-        word.element.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
-}*/
-
 let words = [];
 let isMoving = false;
 let song;
@@ -44,7 +12,7 @@ function setup() {
 
     // Selecciona los elementos de las palabras
     let elements = document.querySelectorAll('.titulo-index span');
-    elements.forEach((el, index) => {
+    elements.forEach((el) => {
         let pos = el.getBoundingClientRect();
         words.push({ 
             element: el, 
@@ -68,31 +36,27 @@ function setup() {
 
     // Evento de arrastre del mouse para cambiar la velocidad de reproducción de la canción
     window.addEventListener('mousemove', (event) => {
-        soundRate = map(event.clientX, 0, window.innerWidth, 1, 4 ); // Mapea la posición del mouse a la velocidad de reproducción (pitch)
+        soundRate = map(event.clientX, 0, window.innerWidth, 1, 4); // Mapea la posición del mouse a la velocidad de reproducción (pitch)
         song.rate(soundRate); // Actualiza la velocidad de reproducción de la canción
     });
 }
 
 function draw() {
     if (isMoving) {
-        background(0); // Limpia el lienzo en cada frame
-
         words.forEach(word => {
             // Aplica movimiento aleatorio centrado en el punto medio de la pantalla
             word.yOffset += random(-1, 1) * word.speed;
             word.xOffset += random(-1, 1) * word.speed;
 
             // Limita el movimiento dentro de un rango centrado en el punto medio de la pantalla
-            let rangeX = window.innerWidth / 0 - 150; // Ajusta el rango según tus preferencias
-            let rangeY = window.innerHeight / 0 - 150; // Ajusta el rango según tus preferencias
-            word.xOffset = constrain(word.xOffset, window.innerWidth / 2 - rangeX, window.innerWidth / 1 + rangeX);
-            word.yOffset = constrain(word.yOffset, window.innerHeight / 2  - rangeY, window.innerHeight / 1 + rangeY);
+            let rangeX = window.innerWidth / 2 - 150; // Ajusta el rango según tus preferencias
+            let rangeY = window.innerHeight / 2 - 150; // Ajusta el rango según tus preferencias
+            word.xOffset = constrain(word.xOffset, window.innerWidth / 2 - rangeX, window.innerWidth / 2 + rangeX);
+            word.yOffset = constrain(word.yOffset, window.innerHeight / 2 - rangeY, window.innerHeight / 2 + rangeY);
 
             word.element.style.transform = `translate(${word.xOffset}px, ${word.yOffset}px)`; // Aplica el movimiento
         });
     } else {
-        background(0); // Limpia el lienzo en cada frame
-
         words.forEach(word => {
             word.yOffset = 0; // Resetea la posición cuando no se presiona el mouse
             word.xOffset = 0; // Resetea la posición cuando no se presiona el mouse
@@ -101,9 +65,7 @@ function draw() {
     }
 }
 
-
-// PAGINA SOBRE
-
+// Funciones de la página SOBRE
 document.addEventListener('DOMContentLoaded', function() {
     const paragraphs = document.querySelectorAll('.full-page-container p');
 
@@ -147,8 +109,3 @@ document.addEventListener('DOMContentLoaded', function() {
         return Math.floor(Math.random() * max);
     }
 });
-
-
-
-
-
