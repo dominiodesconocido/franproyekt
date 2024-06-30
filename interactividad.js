@@ -4,7 +4,7 @@ let song;
 let soundRate = 1;
 
 function preload() {
-    song = loadSound('audios/franfranfranfran.wav'); // Reemplaza 'ruta/de/tu/cancion.mp4' con la ubicación de tu archivo de música
+    song = loadSound('audios/franfranfranfran.wav'); // Asegúrate de que esta ruta sea correcta
 }
 
 function setup() {
@@ -26,11 +26,24 @@ function setup() {
 
     // Evento de clic del mouse para iniciar o detener el movimiento y reproducir la canción
     window.addEventListener('click', () => {
-        isMoving = !isMoving;
-        if (isMoving) {
-            song.loop(); // Reproduce la canción cuando se hace clic
+        if (!song.isPlaying()) {
+            userStartAudio().then(() => {
+                isMoving = !isMoving;
+                if (isMoving) {
+                    song.loop(); // Reproduce la canción cuando se hace clic
+                } else {
+                    song.stop(); // Detiene la canción cuando se hace clic nuevamente
+                }
+            }).catch((err) => {
+                console.error('Error starting audio context:', err);
+            });
         } else {
-            song.stop(); // Detiene la canción cuando se hace clic nuevamente
+            isMoving = !isMoving;
+            if (isMoving) {
+                song.loop(); // Reproduce la canción cuando se hace clic
+            } else {
+                song.stop(); // Detiene la canción cuando se hace clic nuevamente
+            }
         }
     });
 
@@ -64,48 +77,3 @@ function draw() {
         });
     }
 }
-
-// Funciones de la página SOBRE
-document.addEventListener('DOMContentLoaded', function() {
-    const paragraphs = document.querySelectorAll('.full-page-container p');
-
-    paragraphs.forEach(paragraph => {
-        let words = paragraph.innerHTML.split(' ');
-        let formattedWords = words.map(word => `<span class="word">${word}</span>`);
-        paragraph.innerHTML = formattedWords.join(' ');
-    });
-
-    const wordElements = document.querySelectorAll('.word');
-    wordElements.forEach(wordElement => {
-        // Evento mouseover para resaltar palabras
-        wordElement.addEventListener('mouseover', function() {
-            highlightRandomWords();
-        });
-
-        // Evento click para restaurar color original
-        wordElement.addEventListener('click', function() {
-            resetText();
-        });
-    });
-
-    function highlightRandomWords() {
-        const numberOfWordsToHighlight = Math.floor(wordElements.length / 5);
-        let highlightedIndices = new Set();
-        while (highlightedIndices.size < numberOfWordsToHighlight) {
-            highlightedIndices.add(getRandomInt(wordElements.length));
-        }
-        highlightedIndices.forEach(index => {
-            wordElements[index].classList.add('highlight');
-        });
-    }
-
-    function resetText() {
-        wordElements.forEach(wordElement => {
-            wordElement.classList.remove('highlight');
-        });
-    }
-
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-    }
-});
