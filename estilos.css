@@ -1,0 +1,155 @@
+/* GENERALES */
+
+@font-face {
+    font-family: 'PPMondwest-Regular';
+    src: url('fuentes/PPMondwest-Regular.otf') format('opentype');
+         
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PPNeueBit-Bold';
+    src: url('fuentes/PPNeueBit-Bold.otf') format('opentype');
+         
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	
+	}
+
+body {
+		margin: 0;
+		padding: 0;
+	
+	}
+
+
+
+html , body {
+	height: 100%;
+	width: 100%;
+	
+	
+}
+
+header {
+	justify-content: center;
+	padding: 0.1rem;
+}
+
+header.bg-body-tertiary {
+    --bs-bg-opacity: 0;
+    background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
+}
+
+
+
+.container-fluid {
+	--bs-gutter-x: 0rem !important;
+}
+
+/* titulo y texto nav del index */
+.pixelify-sans-texto {
+	font-family: 'PPMondwest-Regular', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	color: #ffffff !important ;	
+	text-decoration: none;
+}
+
+.logo {
+    font-family: 'PPMondwest-Regular', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #0011ff !important ;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+
+
+
+/*@media (min-width: 1080px) {
+    .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+}*/
+
+
+
+  
+.navbar-nav {
+    
+	flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+	overflow-x: auto; /* Permite desplazamiento horizontal si los elementos no caben */
+    justify-content: flex-end; /* Alinea los elementos al final del contenedor navbar */
+    width: 100%; /* Asegura que el navbar ocupe todo el ancho del contenedor */
+	padding-right: 1rem;
+	text-align: right; 
+    
+}
+
+.nav-link {
+    font-size: clamp(0.8rem, 2vw + 1rem, 1.2rem); /* Responsive font size */
+    padding: 0.5rem 1rem; /* Espaciado alrededor de cada enlace */
+    white-space: nowrap; /* Evita que los enlaces se rompan en varias líneas */
+	flex-shrink: 0; /* Evita que los enlaces se reduzcan */
+}
+
+
+
+/* FOOTER */
+
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	padding: 0.5rem;
+	margin: 0;
+	display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+	
+}
+
+
+
+
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 992px) {
+    .nav-link {
+        padding: 0.5rem 0.75rem; /* Reduce el espaciado lateral */
+        font-size: 1rem; /* Tamaño de fuente medio */
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 500px) {
+    .nav-link {
+        padding: 0.5rem 0.5rem; /* Menor espaciado lateral */
+        font-size: 0.8rem; /* Tamaño de fuente pequeño para evitar desbordamientos */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
