@@ -195,6 +195,14 @@
         let song;
         let soundRate = 1;
 
+        function preload() {
+            song = loadSound('audios/fran1.mp3', () => {
+                console.log('Audio cargado correctamente');
+            }, (err) => {
+                console.error('Error al cargar el audio', err);
+            });
+        }
+
         function setup() {
             noCanvas(); 
 
