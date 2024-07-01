@@ -45,7 +45,7 @@ function setup() {
 
 function draw() {
     if (isMoving) {
-        background(0); // Limpia el lienzo en cada frame
+     
 
         words.forEach(word => {
             // Aplica movimiento aleatorio centrado en el punto medio de la pantalla
@@ -71,12 +71,28 @@ function draw() {
     }
 }
 
+// Definición básica de las funciones increment, save y reset
+function increment() {
+    console.log("Increment function called");
+    // Lógica de incremento
+}
 
+function save() {
+    console.log("Save function called");
+    // Lógica de guardado
+}
+
+function reset() {
+    console.log("Reset function called");
+    // Lógica de reinicio
+}
+  
 
 window.increment = increment
 window.save = save
 window.reset = reset
 
 console.log(setup)
+new p5();
 
 
