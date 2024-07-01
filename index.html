@@ -297,6 +297,12 @@
             if (getAudioContext().state !== 'running') {
                 getAudioContext().resume().then(() => {
                     console.log('AudioContext reanudado');
+                    // Intenta reproducir la canción después de reanudar el contexto
+                    if (song && !song.isPlaying() && song.isLoaded()) {
+                        song.play();
+                    }
+                }).catch((error) => {
+                    console.error('Error al reanudar el AudioContext', error);
                 });
             }
         }
