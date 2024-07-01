@@ -257,7 +257,7 @@
                     word.xOffset = constrain(word.xOffset, window.innerWidth / 2 - rangeX, window.innerWidth / 2 + rangeX);
                     word.yOffset = constrain(word.yOffset, window.innerHeight / 2 - rangeY, window.innerHeight / 2 + rangeY);
 
-                    word.element.style.transform = translate(${word.xOffset}px, ${word.yOffset}px); // Aplica el movimiento
+                    word.element.style.transform = 'translate(${word.xOffset}px, ${word.yOffset}px)'; // Aplica el movimiento
                 });
             } else {
                 // Limpia el lienzo en cada frame
