@@ -1,34 +1,4 @@
-/*let words = [];
 
-function setup() {
-    noCanvas();
-
-    // Selecciona los elementos de las palabras
-    let elements = document.querySelectorAll('.titulo-index span');
-    elements.forEach((el, index) => {
-        let pos = el.getBoundingClientRect();
-        words.push({element: el, x: pos.left, y: pos.top, originalX: pos.left, originalY: pos.top});
-    });
-
-    window.addEventListener('mousemove', onMouseMove);
-}
-
-function onMouseMove(event) {
-    let mouseX = event.clientX;
-    let mouseY = event.clientY;
-
-    words.forEach(word => {
-        let dx = mouseX - word.originalX;
-        let dy = mouseY - word.originalY;
-        let distance = sqrt(dx * dx + dy * dy);
-        let angle = atan2(dy, dx);
-
-        let moveX = cos(angle) * distance * 0.05;
-        let moveY = sin(angle) * distance * 0.05;
-
-        word.element.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
-}*/
 
 let words = [];
 let isMoving = false;
@@ -101,52 +71,6 @@ function draw() {
     }
 }
 
-
-// PAGINA SOBRE
-
-document.addEventListener('DOMContentLoaded', function() {
-    const paragraphs = document.querySelectorAll('.full-page-container p');
-
-    paragraphs.forEach(paragraph => {
-        let words = paragraph.innerHTML.split(' ');
-        let formattedWords = words.map(word => `<span class="word">${word}</span>`);
-        paragraph.innerHTML = formattedWords.join(' ');
-    });
-
-    const wordElements = document.querySelectorAll('.word');
-    wordElements.forEach(wordElement => {
-        // Evento mouseover para resaltar palabras
-        wordElement.addEventListener('mouseover', function() {
-            highlightRandomWords();
-        });
-
-        // Evento click para restaurar color original
-        wordElement.addEventListener('click', function() {
-            resetText();
-        });
-    });
-
-    function highlightRandomWords() {
-        const numberOfWordsToHighlight = Math.floor(wordElements.length / 5);
-        let highlightedIndices = new Set();
-        while (highlightedIndices.size < numberOfWordsToHighlight) {
-            highlightedIndices.add(getRandomInt(wordElements.length));
-        }
-        highlightedIndices.forEach(index => {
-            wordElements[index].classList.add('highlight');
-        });
-    }
-
-    function resetText() {
-        wordElements.forEach(wordElement => {
-            wordElement.classList.remove('highlight');
-        });
-    }
-
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-    }
-});
 
 
 window.increment = increment
