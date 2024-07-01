@@ -189,13 +189,13 @@
     
    
 
-    <script> wordsArray = [];
+    <script>        let wordsArray = [];
         let isMoving = false;
         let song;
         let soundRate = 1;
 
         function preload() {
-            song = loadSound('audios/franfranfranfran.wav'); // Reemplaza 'ruta/de/tu/cancion.mp4' con la ubicación de tu archivo de música
+            song = loadSound('audios/franfranfranfran.wav'); // Reemplaza 'audios/franfranfranfran.wav' con la ubicación de tu archivo de música
         }
 
         function setup() {
@@ -217,6 +217,7 @@
 
             // Evento de clic del mouse para iniciar o detener el movimiento y reproducir la canción
             window.addEventListener('click', () => {
+                userGesture(); // Llama a userGesture cuando se hace clic en la ventana
                 isMoving = !isMoving;
                 if (isMoving) {
                     song.loop(); // Reproduce la canción cuando se hace clic
@@ -241,8 +242,8 @@
                     word.xOffset += random(-1, 1) * word.speed;
 
                     // Limita el movimiento dentro de un rango centrado en el punto medio de la pantalla
-                    let rangeX = window.innerWidth / 0 - 150; // Ajusta el rango según tus preferencias
-                    let rangeY = window.innerHeight / 0 - 150; // Ajusta el rango según tus preferencias
+                    let rangeX = window.innerWidth / 2 - 150; // Ajusta el rango según tus preferencias
+                    let rangeY = window.innerHeight / 2 - 150; // Ajusta el rango según tus preferencias
                     word.xOffset = constrain(word.xOffset, window.innerWidth / 2 - rangeX, window.innerWidth / 2 + rangeX);
                     word.yOffset = constrain(word.yOffset, window.innerHeight / 2 - rangeY, window.innerHeight / 2 + rangeY);
 
@@ -278,11 +279,16 @@
         window.saveFunction = saveFunction;
         window.reset = reset;
 
+        // Necesario para p5.js
+        new p5();
 
-</script>
+        // Función para manejar el contexto de audio
+        function userGesture() {
+            if (getAudioContext().state !== 'running') {
+                getAudioContext().resume();
+            }
+        }
 
-
-  
-    
+</script>    
 </body>
 </html>
