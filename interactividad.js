@@ -77,3 +77,7 @@ function draw() {
         });
     }
 }
+
+window.increment = increment
+window.save = save
+window.reset = reset
