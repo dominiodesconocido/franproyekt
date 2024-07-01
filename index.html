@@ -217,11 +217,13 @@
             });
 
             // Evento de clic del mouse para iniciar o detener el movimiento y reproducir la canción
-            window.addEventListener('click', () => {
+             window.addEventListener('click', () => {
                 userGesture(); // Llama a userGesture cuando se hace clic en la ventana
                 isMoving = !isMoving;
                 if (isMoving) {
-                    song.loop(); // Reproduce la canción cuando se hace clic
+                    if (song.isLoaded()) {
+                        song.loop(); // Reproduce la canción cuando se hace clic
+                    }
                 } else {
                     song.stop(); // Detiene la canción cuando se hace clic nuevamente
                 }
@@ -229,10 +231,13 @@
 
             // Evento de arrastre del mouse para cambiar la velocidad de reproducción de la canción
             window.addEventListener('mousemove', (event) => {
-                soundRate = map(event.clientX, 0, window.innerWidth, 1, 4); // Mapea la posición del mouse a la velocidad de reproducción (pitch)
-                song.rate(soundRate); // Actualiza la velocidad de reproducción de la canción
+                if (song && song.isPlaying()) {
+                    soundRate = map(event.clientX, 0, window.innerWidth, 1, 4); // Mapea la posición del mouse a la velocidad de reproducción (pitch)
+                    song.rate(soundRate); // Actualiza la velocidad de reproducción de la canción
+                }
             });
         }
+
 
         function draw() {
             if (isMoving) {
