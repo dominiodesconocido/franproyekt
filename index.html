@@ -195,8 +195,12 @@
         let song;
         let soundRate = 1;
 
-        function preload() {
-            song = loadSound('audios/franfranfranfran.wav'); 
+         function preload() {
+            song = loadSound('audios/franfranfranfran.wav', () => {
+                console.log('Audio cargado correctamente');
+            }, (err) => {
+                console.error('Error al cargar el audio', err);
+            });
         }
 
         function setup() {
@@ -285,15 +289,20 @@
         window.saveFunction = saveFunction;
         window.reset = reset;
 
-        // Necesario para p5.js
-        new p5();
+        
 
         // Función para manejar el contexto de audio
+        / Función para manejar el contexto de audio
         function userGesture() {
             if (getAudioContext().state !== 'running') {
-                getAudioContext().resume();
+                getAudioContext().resume().then(() => {
+                    console.log('AudioContext reanudado');
+                });
             }
         }
+
+        // Inicializar p5.js
+        new p5();
 
 </script>    
 </body>
