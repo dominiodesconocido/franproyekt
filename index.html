@@ -244,23 +244,21 @@
 
 
         function draw() {
-            if (isMoving) {
-        wordsArray.forEach(word => {
-            // Calcular movimiento proporcional basado en el tamaño de la pantalla
-            let maxXOffset = window.innerWidth - word.element.offsetWidth;
-            let maxYOffset = window.innerHeight - word.element.offsetHeight;
+             if (isMoving) {
+                // Limpia el lienzo en cada frame
+                wordsArray.forEach(word => {
+                    // Aplica movimiento aleatorio centrado en el punto medio de la pantalla
+                    word.yOffset += random(-1, 1) * word.speed;
+                    word.xOffset += random(-1, 1) * word.speed;
 
-            // Aplicar movimiento relativo al tamaño de la ventana
-            word.yOffset += random(-1, 1) * word.speed * (window.innerHeight / 1000);
-            word.xOffset += random(-1, 1) * word.speed * (window.innerWidth / 1000);
+                    // Limita el movimiento dentro de un rango centrado en el punto medio de la pantalla
+                    let rangeX = window.innerWidth / 0 - 150; // Ajusta el rango según tus preferencias
+                    let rangeY = window.innerHeight / 0 - 150; // Ajusta el rango según tus preferencias
+                    word.xOffset = constrain(word.xOffset, window.innerWidth / 2 - rangeX, window.innerWidth / 2 + rangeX);
+                    word.yOffset = constrain(word.yOffset, window.innerHeight / 2 - rangeY, window.innerHeight / 2 + rangeY);
 
-            // Limitar movimiento dentro del viewport
-            word.xOffset = constrain(word.xOffset, 0, maxXOffset);
-            word.yOffset = constrain(word.yOffset, 0, maxYOffset);
-
-            // Aplicar el movimiento al elemento
-            word.element.style.transform = `translate(${word.xOffset}px, ${word.yOffset}px)`;
-        });
+                    word.element.style.transform = translate(${word.xOffset}px, ${word.yOffset}px); // Aplica el movimiento
+                });
             } else {
                 // Limpia el lienzo en cada frame
                 wordsArray.forEach(word => {
