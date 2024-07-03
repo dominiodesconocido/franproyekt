@@ -214,9 +214,9 @@
                     element: el, 
                     originalX: pos.left, 
                     originalY: pos.top, 
-                    xOffset: pos.left + el.offsetWidth / 2,
+                    xOffset: pos.left + el.offsetWidth /0 ,
                     yOffset: pos.top + el.offsetHeight / 2,
-                    speed: random(1, 10) 
+                    speed: random(3, 10)
                 });
             });
 
@@ -242,14 +242,14 @@
                 // Limpia el lienzo en cada frame
                 wordsArray.forEach(word => {
                     // Aplica movimiento aleatorio centrado en el punto medio de la pantalla
-                    word.yOffset += random(-1, 1) * word.speed;
-                    word.xOffset += random(-1, 1) * word.speed;
+                    word.yOffset += random(-2, 1) * word.speed;
+                    word.xOffset += random(-8, 4) * word.speed;
 
                     // Limita el movimiento dentro de un rango centrado en el punto medio de la pantalla
                     let maxXOffset = window.innerWidth - word.element.offsetWidth;
                     let maxYOffset = window.innerHeight - word.element.offsetHeight;
-                    word.xOffset = constrain(word.xOffset, 0, maxXOffset);
-                    word.yOffset = constrain(word.yOffset, 0, maxYOffset);
+                    word.xOffset = constrain(word.xOffset, 7, maxXOffset);
+                    word.yOffset = constrain(word.yOffset, 2, maxYOffset);
 
                     word.element.style.transform = `translate(${word.xOffset}px, ${word.yOffset}px)`; // Aplica el movimiento
                 });
@@ -262,7 +262,7 @@
                 });
             }
         }
-
+        
         // Definición básica de las funciones increment, save y reset con nombres únicos para evitar conflictos
         function increment() {
             console.log("Increment function called");
