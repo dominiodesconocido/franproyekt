@@ -86,7 +86,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-bottom: 40px; /* Ajusta este valor para el espaciado entre líneas */
+    margin-bottom: 40px; /*  valor para el espaciado entre líneas */
     
 }
 
@@ -104,7 +104,7 @@
     
     justify-content: center;
     align-items: center;
-     /* Ajusta este valor para el espaciado entre líneas */
+     /* valor para el espaciado entre líneas */
 }
 
 
@@ -206,7 +206,7 @@
         function setup() {
             noCanvas(); 
 
-            // Selecciona los elementos de las palabras
+            // selecciona los elementos de las palabras
             let elements = document.querySelectorAll('.titulo-index span');
             elements.forEach((el, index) => {
                 let pos = el.getBoundingClientRect();
@@ -220,20 +220,20 @@
                 });
             });
 
-            // Evento de clic del mouse para iniciar o detener el movimiento y reproducir la canción
+            // evento de clic del mouse para iniciar o detener el movimiento y reproducir la canción
             window.addEventListener('click', () => {
                 isMoving = !isMoving;
                 if (isMoving) {
-                    song.loop(); // Reproduce la canción cuando se hace clic
+                    song.loop(); // reproduce la canción cuando se hace clic
                 } else {
-                    song.stop(); // Detiene la canción cuando se hace clic nuevamente
+                    song.stop(); // detiene la canción cuando se hace clic nuevamente
                 }
             });
 
-            // Evento de arrastre del mouse para cambiar la velocidad de reproducción de la canción
+            // evento de arrastre del mouse para cambiar la velocidad de reproducción de la canción
             window.addEventListener('mousemove', (event) => {
-                soundRate = map(event.clientX, 0, window.innerWidth, 1, 4); // Mapea la posición del mouse a la velocidad de reproducción (pitch)
-                song.rate(soundRate); // Actualiza la velocidad de reproducción de la canción
+                soundRate = map(event.clientX, 0, window.innerWidth, 1, 4); // mapea la posición del mouse a la velocidad de reproducción (pitch)
+                song.rate(soundRate); // actualiza la velocidad de reproducción de la canción
             });
         }
 
@@ -241,11 +241,11 @@
             if (isMoving) {
                 // Limpia el lienzo en cada frame
                 wordsArray.forEach(word => {
-                    // Aplica movimiento aleatorio centrado en el punto medio de la pantalla
+                    // aplica movimiento aleatorio centrado en el punto medio de la pantalla
                     word.yOffset += random(-2, 1) * word.speed;
                     word.xOffset += random(-8, 4) * word.speed;
 
-                    // Limita el movimiento dentro de un rango centrado en el punto medio de la pantalla
+                    // limita el movimiento dentro de un rango centrado en el punto medio de la pantalla
                     let maxXOffset = window.innerWidth - word.element.offsetWidth;
                     let maxYOffset = window.innerHeight - word.element.offsetHeight;
                     word.xOffset = constrain(word.xOffset, 7, maxXOffset);
@@ -254,16 +254,16 @@
                     word.element.style.transform = `translate(${word.xOffset}px, ${word.yOffset}px)`; // Aplica el movimiento
                 });
             } else {
-                // Limpia el lienzo en cada frame
+                // limpia el lienzo en cada frame
                 wordsArray.forEach(word => {
-                    word.yOffset = 0; // Resetea la posición cuando no se presiona el mouse
-                    word.xOffset = 0; // Resetea la posición cuando no se presiona el mouse
+                    word.yOffset = 0; // resetea la posición cuando no se presiona el mouse
+                    word.xOffset = 0; // resetea la posición cuando no se presiona el mouse
                     word.element.style.transform = `translate(${word.xOffset}px, ${word.yOffset}px)`;
                 });
             }
         }
         
-        // Definición básica de las funciones increment, save y reset con nombres únicos para evitar conflictos
+        // definición básica de las funciones increment, save y reset con nombres únicos 
         function increment() {
             console.log("Increment function called");
             // Lógica de incremento
