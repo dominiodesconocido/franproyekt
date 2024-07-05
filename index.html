@@ -1,291 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>franproyekt</title>
-    <link rel="stylesheet" href="estilos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="stylesheet" href="estilos.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
-    
+
     <style>
-        body {
-            background-color: black;
-            font-family: 'PPMondwest-Regular', sans-serif;
-            margin: 0;
-            background-image: url('img/index/fondo/fondoinicio.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        .contenedor2 {
-            position: relative;
-               
-        }
+      body {
+        background-color: black;
+        font-family: 'PPMondwest-Regular', sans-serif;
+        margin: 0;
+        background-image: url('img/index/fondo/fondoinicio.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
 
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100vh;
-        }
+      .contenedor2 {
+        position: relative;
+      }
 
-        .titulo-index {
-           display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            font-size: 8vw;
-            color: #0011ff;
-            text-decoration: none;
-            flex-direction: row;
-            align-content: stretch;
-          align-items: flex-end;
-        }
-        
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
 
-        .titulo-index span {
+      .titulo-index {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        font-size: 8vw;
+        color: #0011ff;
+        text-decoration: none;
+        flex-direction: row;
+        align-content: stretch;
+        align-items: flex-end;
+      }
 
-            display: inline-block;
-            margin: 0px 0.5vw;
-            /*display: inline-block;
+      .titulo-index span {
+        display: inline-block;
+        margin: 0px 0.5vw;
+        /*display: inline-block;
             margin: 0 1vw;*/
-        }
+      }
 
-        @media (max-width: 768px) {
-            .titulo-index {
-                font-size: 12vw;
-            }
+      @media (max-width: 768px) {
+        .titulo-index {
+          font-size: 12vw;
         }
+      }
 
-        @media (max-width: 576px) {
-            .titulo-index {
-                font-size: 16vw;
-            }
+      @media (max-width: 576px) {
+        .titulo-index {
+          font-size: 16vw;
         }
+      }
 
-        footer {
-            width: 100%;
-            text-align: center;
-            padding: 4px 0;
-        }
+      footer {
+        width: 100%;
+        text-align: center;
+        padding: 4px 0;
+      }
 
-     
-    .word1, .word2, .word3, .word4 {
+      .word1,
+      .word2,
+      .word3,
+      .word4 {
         position: relative;
         letter-spacing: -0.1em; /* Espaciado entre letras */
-    }
+      }
 
-.fran {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: 40px; /*  valor para el espaciado entre líneas */
-    
-}
+      .fran {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 40px; /*  valor para el espaciado entre líneas */
+      }
 
-.pro {
-    display: flex;
-    
-    /*justify-content: space-between;*/
-    align-items: center;
-    
-    
-}
+      .pro {
+        display: flex;
 
-.yekt {
-    display: flex;
-    
-    justify-content: center;
-    align-items: center;
-     /* valor para el espaciado entre líneas */
-}
+        /*justify-content: space-between;*/
+        align-items: center;
+      }
 
+      .yekt {
+        display: flex;
 
+        justify-content: center;
+        align-items: center;
+        /* valor para el espaciado entre líneas */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="bg-body-tertiary">
-        <div class="container contenedor2">
-            <div class="row">
-                <div class="col-12 text-center titulo-index">
-                  
-                <div class="fran espacio">
-                    <div class="linea1 ">
-                        <span class="word1">f</span>
-                    </div>
-                    <div class="linea1 "> 
-                        <span class="word1">r</span>
-                    </div> 
-                    <div class="linea1 ">
-                        <span class="word1">a</span>
-                    </div>
-                    <div class="linea1 ">
-                        <span class="word1">n</span>
-                    </div>
-                </div>
-                
-                <div>
-                <div class="pro espacio">
-                    <div class="linea1 ">
-                        <span class="word1">p</span>
-                    </div>
-                    <div class="linea1 ">
-                        <span class="word1">r</span>
-                    </div>
-                    <div class="linea1 ">
-                        <span class="word1">o</span>
-                    </div>
-                
+      <div class="container contenedor2">
+        <div class="row">
+          <div class="col-12 text-center titulo-index">
+            <div class="fran espacio">
+              <div class="linea1">
+                <span class="word1">f</span>
+              </div>
+              <div class="linea1">
+                <span class="word1">r</span>
+              </div>
+              <div class="linea1">
+                <span class="word1">a</span>
+              </div>
+              <div class="linea1">
+                <span class="word1">n</span>
+              </div>
+            </div>
 
-            </div> 
-                <div class="yekt espacio">
-                    <div class="linea2 ">   
-                        <span class="word2">y</span>
-                    </div> 
-                    <div class="linea2 ">
-                        <span class="word2">e</span>
-                    </div>
-                    <div class="linea2 ">
-                        <span class="word2">k</span>
-                    </div>
-                    <div class="linea2 ">
-                        <span class="word2">t</span>
-                    </div>
-                </div>   
-            </div>
+            <div>
+              <div class="pro espacio">
+                <div class="linea1">
+                  <span class="word1">p</span>
                 </div>
+                <div class="linea1">
+                  <span class="word1">r</span>
+                </div>
+                <div class="linea1">
+                  <span class="word1">o</span>
+                </div>
+              </div>
+              <div class="yekt espacio">
+                <div class="linea2">
+                  <span class="word2">y</span>
+                </div>
+                <div class="linea2">
+                  <span class="word2">e</span>
+                </div>
+                <div class="linea2">
+                  <span class="word2">k</span>
+                </div>
+                <div class="linea2">
+                  <span class="word2">t</span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </header>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <footer>
-                    <nav class="navbar navbar-expand-lg">
-                        <div class="navbar-nav ms-auto">
-                            <a class="nav-link pixelify-sans-texto" href="sobre.html">Bio</a>
-                            <a class="nav-link pixelify-sans-texto" href="musica.html">Música</a>
-                            
-                            <a class="nav-link pixelify-sans-texto" href="contacto.html">Contacto</a>
-                            <a class="nav-link pixelify-sans-texto" href="https://www.instagram.com/franproyekt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram</a>
-                            
-                        </div>
-                    </nav>
-                </footer>
-            </div>
+      <div class="row">
+        <div class="col-12">
+          <footer>
+            <nav class="navbar navbar-expand-lg">
+              <div class="navbar-nav ms-auto">
+                <a class="nav-link pixelify-sans-texto" href="/sobre">Bio</a>
+                <a class="nav-link pixelify-sans-texto" href="/musica"
+                  >Música</a
+                >
+
+                <a class="nav-link pixelify-sans-texto" href="/contacto"
+                  >Contacto</a
+                >
+                <a
+                  class="nav-link pixelify-sans-texto"
+                  href="https://www.instagram.com/franproyekt?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Instagram</a
+                >
+              </div>
+            </nav>
+          </footer>
         </div>
+      </div>
     </div>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>  
-    
-   
-
-    <script>        
-        let wordsArray = [];
-        let isMoving = false;
-        let song;
-        let soundRate = 1;
-
-        function preload() {
-            song = loadSound('audios/fran1.mp3', () => {
-                console.log('Audio cargado correctamente');
-            }, (err) => {
-                console.error('Error al cargar el audio', err);
-            });
-        }
-
-        function setup() {
-            noCanvas(); 
-
-            // selecciona los elementos de las palabras
-            let elements = document.querySelectorAll('.titulo-index span');
-            elements.forEach((el, index) => {
-                let pos = el.getBoundingClientRect();
-                wordsArray.push({ 
-                    element: el, 
-                    originalX: pos.left, 
-                    originalY: pos.top, 
-                    xOffset: pos.left + el.offsetWidth /0 ,
-                    yOffset: pos.top + el.offsetHeight / 1,
-                    speed: random(0, 8)
-                });
-            });
-
-            // evento de clic del mouse para iniciar o detener el movimiento y reproducir la canción
-            window.addEventListener('click', () => {
-                isMoving = !isMoving;
-                if (isMoving) {
-                    song.loop(); // reproduce la canción cuando se hace clic
-                } else {
-                    song.stop(); // detiene la canción cuando se hace clic nuevamente
-                }
-            });
-
-            // evento de arrastre del mouse para cambiar la velocidad de reproducción de la canción
-            window.addEventListener('mousemove', (event) => {
-                soundRate = map(event.clientX, 0, window.innerWidth, 1, 4); // mapea la posición del mouse a la velocidad de reproducción (pitch)
-                song.rate(soundRate); // actualiza la velocidad de reproducción de la canción
-            });
-        }
-
-        function draw() {
-            if (isMoving) {
-                // Limpia el lienzo en cada frame
-                wordsArray.forEach(word => {
-                    // aplica movimiento aleatorio centrado en el punto medio de la pantalla
-                    word.yOffset += random(-2, 1) * word.speed;
-                    word.xOffset += random(-8, 4) * word.speed;
-
-                    // limita el movimiento dentro de un rango centrado en el punto medio de la pantalla
-                    let maxXOffset = window.innerWidth - word.element.offsetWidth;
-                    let maxYOffset = window.innerHeight - word.element.offsetHeight;
-                    word.xOffset = constrain(word.xOffset, 7, maxXOffset);
-                    word.yOffset = constrain(word.yOffset, 2, maxYOffset);
-
-                    word.element.style.transform = `translate(${word.xOffset}px, ${word.yOffset}px)`; // Aplica el movimiento
-                });
-            } else {
-                // limpia el lienzo en cada frame
-                wordsArray.forEach(word => {
-                    word.yOffset = 0; // resetea la posición cuando no se presiona el mouse
-                    word.xOffset = 0; // resetea la posición cuando no se presiona el mouse
-                    word.element.style.transform = `translate(${word.xOffset}px, ${word.yOffset}px)`;
-                });
-            }
-        }
-        
-        // definición básica de las funciones increment, save y reset con nombres únicos 
-        function increment() {
-            console.log("Increment function called");
-            // Lógica de incremento
-        }
-
-        function saveFunction() {
-            console.log("Save function called");
-            // Lógica de guardado
-        }
-
-        function reset() {
-            console.log("Reset function called");
-            // Lógica de reinicio
-        }
-
-        window.increment = increment;
-        window.saveFunction = saveFunction;
-        window.reset = reset;
-
-         // Inicializar p5.js
-        new p5();
-
-</script>    
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="sound.js"></script>
+  </body>
 </html>
